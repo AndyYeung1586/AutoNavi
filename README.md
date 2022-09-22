@@ -8,10 +8,13 @@ The goal of this project is to detect the occupied traffic lane on a highway in 
 To do this, this project utilizes **OpenCV** and **NumPy** libraries to process the dashcam feed/footage. As well as using os library to manage processed data.
 
 ## Motivation
-As a commuter living in suburbia, travelling anywhere almost always require travelling on a highway.
-And with how dangerous the condition on highway is, millions of drivers have to dedicate hours of attention from hurting themselves everyday.
-While actual autonomous driving maybe decades away from reality, and actual solution to free people from traveling by car maybe near impossible from a social point of view, 
-we can implement safety features on car today to make commuting experience less deadly.
+As a commuter living in suburbia, travelling anywhere almost always require driving on a highway.
+While highway may offer people living in suburbs a speedy means of transport compare to other means of transport, it is undoubtedly more dangerous than other means of transport.
+Often going in excess of 65, 75, or even 80 mph, millions of drivers have to dedicate hours of attention just to focus on the road trying to prevent a terrible accident from happening.
+And it has become a major problem as we continue to be a car-dependent society.
+With [millions of hour](https://www.census.gov/newsroom/press-releases/2021/one-way-travel-time-to-work-rises.html#:~:text=In%202019%2C%20the%20average%20one,about%2010%25%20over%2014%20years.) and [tens of thousand of lifes](https://www.iihs.org/topics/fatality-statistics/detail/state-by-state) wasted each year, we have come to a point where solutions are desperately needed.
+While any serious autonomous driving maybe decades away from reality, and actual solutions to free people from being car dependent are near impossible from many point of views, 
+we can at the very least implement safety features on cars today to make commuting experience less deadly.
 This includes using on board camera system for lane tracking and keeping, which is the motivation for picking this as my final project.
 
 ## Process
