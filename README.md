@@ -1,9 +1,13 @@
 # Autonomous Traffic Lane Detection and Curvature Estimation
+
+<p align='center'>
+  <img src='https://github.com/AndyYeung1586/AutoNavi/blob/main/Assets/frame40_1.jpg' width=750>
+</p>
+
 The goal of this project is to detect the occupied traffic lane on a highway in real time, as well as determine the curvature of the traffic lane.
 To do this, this project utilizes **OpenCV** and **NumPy** libraries to process the dashcam feed/footage. As well as using os library to manage processed data.
 
 ## Motivation
-This is a final project 
 As a commuter living in suburbia, travelling anywhere almost always require travelling on a highway.
 And with how dangerous the condition on highway is, millions of drivers have to dedicate hours of attention from hurting themselves everyday.
 While actual autonomous driving maybe decades away from reality, and actual solution to free people from traveling by car maybe near impossible from a social point of view, 
@@ -19,11 +23,29 @@ to a bird-eye view of the road. This is done by feeding `cv2.getPerspectiveTrans
 And to get an accurate transformation (or just the desired transformation), we can use `CoordinatesAdjust.py` and insert a test image, where we can find the desired coordinates to transform.
 And once we "stretch" the image correctly, we can semi-accurately calculate the curvature using the transformed image.
 
+<p align='center'>
+  <img src='https://github.com/AndyYeung1586/AutoNavi/blob/main/Assets/frame40.jpg' width=700>
+  <img src='https://github.com/AndyYeung1586/AutoNavi/blob/main/Assets/frame40_3.jpg' height=500>
+</p>
+  
+<p align='center'> 
+  <em> Before and After the Transformation </em>
+</p>
+
 ### Step 2
 Now that we have a bird-eye view of the road, we can use `cv2.inRange()` and `cv2.threshold()` to identify any orange and white lanes on the highway on each frame. 
 Several techniques are used to remove noises from each frame and enhance any lanes we have identified.
 Once we have clearly identified the traffic lanes on the road, we can then split the frame into a left-hand side and a right-hand side. 
-This allows the computer to process each individual lane.
+This allows the computer to process each individual lane, and find the coordinates for the left and right lane.
+
+<p align='center'>
+  <img src='https://github.com/AndyYeung1586/AutoNavi/blob/main/Assets/frame40_2.jpg' height=500>
+  <img src='https://github.com/AndyYeung1586/AutoNavi/blob/main/Assets/frame40_4.jpg' height=500>
+</p>
+
+<p align='center'> 
+  <em> Tthe frame is reduced to black (no lane markings) and white (potential lane markings); And the coordinates are found by scanning the frame horizontally</em>
+</p>
 
 ### Step 3
 By processing the lane data, we can find the coordinates of the lane's markings, which can be used to estimate the curvature of the lane [mathematically](https://www.cuemath.com/radius-of-curvature-formula/). 
@@ -33,6 +55,14 @@ We can also determine how sharp the turn is.
 
 ### Step 4
 Finally, the coordinates of the lane's marking are reprojected onto the normal camera view, and the user can see how well(or poorly) the program is functioning.
+
+<p align='center'>
+  <img src='https://github.com/AndyYeung1586/AutoNavi/blob/main/Assets/frame40_1.jpg' width=750>
+</p>
+
+<p align='center'> 
+  <em> Here, the lane detected is highlighted purple, and the estimated curvature can be seen on top left </em>
+</p>
 
 ## Shortcoming
 As this program is incredibly rudimentary, it is bounded to have many flaws/shortcomings:
